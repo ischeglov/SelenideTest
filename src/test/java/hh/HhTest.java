@@ -27,6 +27,7 @@ public class HhTest extends BaseSelenideTest {
         expectedAttributes.put(HhResumePage.GENDER, "М");
         expectedAttributes.put(HhResumePage.AGE, 36);
         expectedAttributes.put(HhResumePage.CITY, "Уфа");
+        expectedAttributes.put(HhResumePage.CONFIRMED_PHONE_NUMBER, true);
         expectedAttributes.put(HhResumePage.RELOCATE, false);
 
         /**
@@ -48,13 +49,14 @@ public class HhTest extends BaseSelenideTest {
         /**
          * Создаем экземпляр класса с ожидаемыми результатами
          */
-        Resume expectedResult = new Resume("М", 36, "Уфа", false);
+        Resume expectedResult = new Resume("М", 36, "Уфа",
+                true, false);
 
         /**
          * Получаем экземпляр класса с актуальными результатами
          */
         Resume aclualResult = new Resume(hhResumePage.getGender(), hhResumePage.getAge(), hhResumePage.getCity(),
-                hhResumePage.isReadyToRelocate());
+                hhResumePage.isConfirmedPhoneNumber(), hhResumePage.isReadyToRelocate());
 
         /**
          * Сравниваем ожидаемый и актуальный результат
@@ -68,6 +70,7 @@ public class HhTest extends BaseSelenideTest {
 //        Assertions.assertEquals(expectedResult.getGender(), aclualResult.getGender());
 //        Assertions.assertEquals(expectedResult.getAge(), aclualResult.getAge());
 //        Assertions.assertEquals(expectedResult.getCity(), aclualResult.getCity());
+//        Assertions.assertEquals(expectedResult.isConfirmedPhoneNumber(), aclualResult.isConfirmedPhoneNumber());
 //        Assertions.assertEquals(expectedResult.isReadyToRelocate(), aclualResult.isReadyToRelocate());
     }
 }

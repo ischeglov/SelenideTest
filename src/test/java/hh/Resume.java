@@ -8,6 +8,7 @@ public class Resume {
     private final String gender;
     private final int age;
     private final String city;
+    private final boolean isConfirmedPhoneNumber;
     private final boolean isReadyToRelocate;
 
     /**
@@ -15,13 +16,15 @@ public class Resume {
      * @param gender пол
      * @param age возраст
      * @param city город проживания
+     * @param isConfirmedPhoneNumber подтвержденный номер телефона
      * @param isReadyToRelocate готовность к переезду
      */
 
-    public Resume(String gender, int age, String city, boolean isReadyToRelocate) {
+    public Resume(String gender, int age, String city, boolean isConfirmedPhoneNumber, boolean isReadyToRelocate) {
         this.gender = gender;
         this.age = age;
         this.city = city;
+        this.isConfirmedPhoneNumber = isConfirmedPhoneNumber;
         this.isReadyToRelocate = isReadyToRelocate;
     }
 
@@ -35,6 +38,10 @@ public class Resume {
 
     public String getCity() {
         return city;
+    }
+
+    public boolean isConfirmedPhoneNumber() {
+        return isConfirmedPhoneNumber;
     }
 
     public boolean isReadyToRelocate() {

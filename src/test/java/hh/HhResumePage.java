@@ -13,6 +13,7 @@ public class HhResumePage {
     private final SelenideElement gender = $x("//span[@data-qa='resume-personal-gender']");
     private final SelenideElement age = $x("//span[@data-qa='resume-personal-age']/span");
     private final SelenideElement city = $x("//span[@data-qa='resume-personal-address']");
+    private final SelenideElement confirmedPhoneNumber = $x("//div[@data-qa='resume-contacts-phone']//*[local-name() = 'svg']");
     private final SelenideElement livesDada = $x("//span[@data-qa='resume-personal-address']/ancestor::p");
 
     /**
@@ -21,6 +22,7 @@ public class HhResumePage {
     public static String GENDER = "Пол";
     public static String AGE = "Возраст";
     public static String CITY = "Город";
+    public static String CONFIRMED_PHONE_NUMBER = "Подтрвежденный номер телефона";
     public static String RELOCATE = "Готовность к переезду";
 
     public HhResumePage(String url) {
@@ -38,6 +40,7 @@ public class HhResumePage {
             put(GENDER, getGender());
             put(AGE, getAge());
             put(CITY, getCity());
+            put(CONFIRMED_PHONE_NUMBER, isConfirmedPhoneNumber());
             put(RELOCATE, isReadyToRelocate());
         }};
     }
@@ -52,6 +55,7 @@ public class HhResumePage {
 //        attributes.put(GENDER, getGender());
 //        attributes.put(AGE, getAge());
 //        attributes.put(CITY, getCity());
+//        attributes.put(CONFIRMED_PHONE_NUMBER, isConfirmedPhoneNumber());
 //        attributes.put(RELOCATE, isReadyToRelocate());
 //        return attributes;
 //    }
@@ -94,6 +98,14 @@ public class HhResumePage {
      */
     public String getCity() {
         return city.getText();
+    }
+
+    /**
+     * Проверяем подтвержден ли номер телефона у кандидата
+     * @return подтвержденный номер телефона
+     */
+    public boolean isConfirmedPhoneNumber() {
+        return confirmedPhoneNumber.isDisplayed();
     }
 
     /**
